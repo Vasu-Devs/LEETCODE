@@ -7,7 +7,7 @@ public:
             return a<b;
         });
         int n=nums.size()-k;
-        cout<<n;
+        // cout<<n;
         return nums[n];
     }
 };
