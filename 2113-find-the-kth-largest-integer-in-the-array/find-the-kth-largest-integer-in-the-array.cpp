@@ -8,7 +8,7 @@ public:
         });
 
         // cout<<n;
-        return nums[k-1];
+        return nums.at(k-1);
         // sort(nums.begin(),nums.end(),[](const string &a , const string &b){
         //     if(a.size()!=b.size())
         //         return a.size()<b.size();
