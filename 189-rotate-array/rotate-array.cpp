@@ -23,25 +23,29 @@ public:
         
         // }
         
-        reverse(nums.begin(),nums.end());
+        // reverse(nums.begin(),nums.end());
    
-        k=k%nums.size();
-        int i=0;
-        int j=k-1;
-        while(i<j){
-            swap(nums[i],nums[j]);
+        // k=k%nums.size();
+        // int i=0;
+        // int j=k-1;
+        // while(i<j){
+        //     swap(nums[i],nums[j]);
             
-            i++;
-            j--;
-        }
-        i=k;
-        j=nums.size()-1;
-        while(i<j){
-            swap(nums[i],nums[j]);
-            i++;
-            j--;
-        }
-       
+        //     i++;
+        //     j--;
+        // }
+        // i=k;
+        // j=nums.size()-1;
+        // while(i<j){
+        //     swap(nums[i],nums[j]);
+        //     i++;
+        //     j--;
+        // }
+         k=k%nums.size();
+        reverse(nums.begin(),nums.end()-k);
+        reverse(nums.end()-k,nums.end());
+        reverse(nums.begin(),nums.end());
+    
     }  
    
    
