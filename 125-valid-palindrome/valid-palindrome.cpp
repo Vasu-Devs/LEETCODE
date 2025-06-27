@@ -9,18 +9,19 @@ public:
             }
         }
         
-        // b=a;
-        // reverse(b.begin(),b.end());
-        // if(b==a)
-        //     return 1;
-        // return 0;
-        int l=0,r=a.length()-1;
-        while(l<r){
-            if(a[l]!=a[r])
-                return 0;
-            l++;
-            r--;
-        }
-        return 1;
+        string b="";
+        b=a;
+        reverse(b.begin(),b.end());
+        if(b==a)
+            return 1;
+        return 0;
+        // int l=0,r=a.length()-1;
+        // while(l<r){
+        //     if(a[l]!=a[r])
+        //         return 0;
+        //     l++;
+        //     r--;
+        // }
+        // return 1;
     }
 };
