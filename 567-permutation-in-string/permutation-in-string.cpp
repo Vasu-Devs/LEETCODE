@@ -2,11 +2,11 @@ class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
         int n=s1.size();
-        // int s;
+        
       
         string s="";
         for(int i=0;i<s2.length();i++){
-            s=s2.substr(i,s1.length());
+            s=s2.substr(i,n);
             
         
             if(comp(s1,s))
