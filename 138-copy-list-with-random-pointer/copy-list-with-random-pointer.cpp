@@ -21,11 +21,10 @@ public:
 
         Node* curr=head;
         while(curr){
-            Node* copy=new Node(curr->val);
-            copy->next=curr->next;
-            curr->next=copy;
-
-            curr=copy->next;
+             Node* newNode = new Node(curr->val);
+            newNode->next = curr->next;
+            curr->next = newNode;
+            curr = newNode->next;
         }
         curr=head;
         while(curr){
