@@ -35,15 +35,13 @@ public:
         }
 
         Node* dummy=new Node(0);
-        Node* copyCurr=dummy;
+        Node* copy=dummy;
         curr=head;
         while(curr){
-            Node* copy=curr->next;
-            copyCurr->next=copy;
-            copyCurr=copy;
-
-            curr->next=copy->next;
-            curr=curr->next;
+          copy->next = curr->next;
+            copy = copy->next;
+            curr->next = curr->next->next; 
+            curr = curr->next;
         }
         return dummy->next;
 
