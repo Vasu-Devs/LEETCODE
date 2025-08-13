@@ -1,5 +1,14 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        ss=''.join(sorted(s))
-        ts=''.join(sorted(t))
-        return ss==ts
+        freq=[0]*26
+        for i in s:
+            freq[ord(i)-ord('a')]+=1
+        
+        for i in t:
+            freq[ord(i)-ord('a')]-=1
+
+        for i in freq:
+            if i!=0:
+                return False
+        return True
+            
