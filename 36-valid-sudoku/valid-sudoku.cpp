@@ -29,7 +29,7 @@ public:
 
         //checking 3x3 matrices
         for (int row = 0; row < 9; row += 3) {
-    for (int col = 0; col < 9; col += 3) {
+         for (int col = 0; col < 9; col += 3) {
         
         vector<int> digits(9, 0); 
         
