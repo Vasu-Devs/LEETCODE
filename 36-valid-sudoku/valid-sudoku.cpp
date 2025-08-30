@@ -1,55 +1,55 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-        vector<int> digits(9,0);
-       
-        //checking every row
-        for(int i=0;i<9;i++){
-            fill(digits.begin(), digits.end(), 0);
-            for(int j=0;j<9;j++){
-                if(board[i][j]!='.'){
-                    int num = board[i][j] - '1';  
-                    if (digits[num]) return false;
-                    digits[num] = 1;
+        for(int i=0;i<9;i++){ 
+            bool seen[9]={false}; 
+            for(int j=0;j<9;j++){  
+                if(board[i][j]=='.'){ 
+                    continue ;
                 }
+                int num=board[i][j]-'1'; 
+                if(seen[num]){ 
+                    return false;
+                }
+                seen[num]=true;  
             }
         }
 
-        //checking every col
-        for(int i=0;i<9;i++){
-            fill(digits.begin(), digits.end(), 0);
-            for(int j=0;j<9;j++){
-                if(board[j][i]!='.'){
-                    int num = board[j][i] - '1';  
-                    if (digits[num]) return false;
-                    digits[num] = 1;
+
+        for(int j=0;j<9;j++){ 
+            bool seen[9]={false}; 
+            for(int i=0;i<9;i++){ 
+                if(board[i][j]=='.'){ 
+                    continue ;
                 }
+                int num=board[i][j]-'1';      
+                if(seen[num]){                
+                    return false;
+                }
+                seen[num]=true ;               
             }
         }
 
-        //checking 3x3 matrices
-        for (int row = 0; row < 9; row += 3) {
-         for (int col = 0; col < 9; col += 3) {
-        
-        vector<int> digits(9, 0); 
-        
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                int r = row + i;
-                int c = col + j;
-                
-                if (board[r][c] != '.') {
-                    int num = board[r][c] - '1';
-                    if (digits[num] == 1) {
-                        return false;
+
+        for(int boxrow=0;boxrow<3;boxrow++){      
+            for(int boxcolumn=0;boxcolumn<3;boxcolumn++){ 
+                bool seen[9]={false};              
+                for(int i=0;i<3;i++){                
+                    for(int j=0;j<3;j++){             
+                        int r=boxrow*3+i;             
+                        int c=boxcolumn*3+j;         
+                        if(board[r][c]=='.'){          
+                            continue ;
+                        }
+                        int num=board[r][c]-'1';
+                        if(seen[num]){             
+                            return false;
+                        }
+                        seen[num]=true ;             
                     }
-                    digits[num] = 1;
                 }
             }
         }
-    }
-}
-
-    return 1;
+        return true ;
     }
 };
